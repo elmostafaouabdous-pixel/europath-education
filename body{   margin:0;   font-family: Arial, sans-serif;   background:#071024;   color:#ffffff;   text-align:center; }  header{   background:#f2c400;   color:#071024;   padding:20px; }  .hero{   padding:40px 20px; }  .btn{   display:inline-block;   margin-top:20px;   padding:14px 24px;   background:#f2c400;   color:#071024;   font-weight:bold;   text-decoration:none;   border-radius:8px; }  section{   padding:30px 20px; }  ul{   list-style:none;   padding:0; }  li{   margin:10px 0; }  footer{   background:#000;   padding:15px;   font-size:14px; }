@@ -1,0 +1,16 @@
+// WhatsApp number (بدون +)
+const WHATSAPP_NUMBER = "212680166181";
+
+function buildWhatsAppLink(message) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // رابط واتساب افتراضي
+  const msg = "مرحبًا EuroPath Education، أريد الاستفسار عن الدراسة في أوروبا.";
+  const link = buildWhatsAppLink(msg);
+
+  // إذا كان عندك زر في الصفحة لاحقًا
+  const buttons = document.querySelectorAll("a[href*='wa.me']");
+  buttons.forEach((b) => (b.href = link));
+});
